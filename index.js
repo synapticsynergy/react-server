@@ -18,6 +18,13 @@ app.get('/', function(req, res){
   })
 })
 
+app.post('/', function(req,res) {
+	res.json({
+		success: true,
+		msg: "you made a post"
+	});
+});
+
 app.listen(port, function(){
   console.log(`Server on port: ${port}`);
 });
