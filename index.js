@@ -1,7 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const port = process.argv[2] || 3333
 
+
 const app = express();
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //CORS
 app.use(function (req, res, next){
@@ -21,7 +25,7 @@ app.get('/', function(req, res){
 app.post('/', function(req,res) {
 	res.json({
 		success: true,
-		msg: "you made a post"
+		msg: `your name is ${req.body.name}`
 	});
 });
 
